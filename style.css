@@ -1,0 +1,198 @@
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+ body {
+     font-family: "Roboto", sans-serif;
+     font-optical-sizing: auto;
+     font-style: normal;
+     padding: 0;
+     margin: 0;
+     background-color: black;
+ }
+
+ .main {
+     display: flex;
+     /* filter: grayscale(100%); */
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     min-height: 100vh;
+     /* background-image: url("https://rafaelcalvin.github.io/data/images/ghibli.jpg"); */
+     background-image: url("https://rafaelcalvin.github.io/data/ann/sky-gs.png");
+     background-size: cover;
+     background-position: center center;
+     background-repeat: no-repeat;
+     padding: 0 100px;
+ }
+
+ .birth_input {
+     border-radius: 20px;
+     padding: 30px;
+     background-color: white;
+     display: flex;
+     flex-direction: column;
+     z-index: 1000;
+ }
+
+ .message_input {
+     border-radius: 20px;
+     background-image: url("https://rafaelcalvin.github.io/data/ann/sparkle-message-1.gif");
+     margin: 20px;
+     background-color: white;
+     display: none;
+     flex-direction: column;
+     align-items: center;
+     z-index: 1000;
+ }
+
+ .message_input .header {
+     background-color: rgb(0 0 0 / 80%);
+     width: 100%;
+     color: white;
+     padding: 20px 0;
+     border-radius: 20px 20px 0 0;
+ }
+
+ .message_input .footer {
+     background-color: rgb(0 0 0 / 80%);
+     width: 100%;
+     color: white;
+     padding: 20px 0;
+     border-radius: 0 0 20px 20px;
+ }
+
+ .btn-minimal {
+     background-color: #ee92b7;
+     color: #ffffff;
+     padding: 12px 24px;
+     border-radius: 8px;
+     border: none;
+     font-family: 'Inter', sans-serif;
+     font-size: 16px;
+     font-weight: 600;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+ }
+
+ .btn-minimal:hover {
+     background-color: #eb6da0;
+     transform: translateY(-2px);
+     box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+ }
+
+ .btn-minimal:active {
+     transform: translateY(0);
+ }
+
+ .btn-minimal-off {
+     background-color: grey;
+     color: #ffffff;
+     padding: 12px 24px;
+     border-radius: 8px;
+     border: none;
+     font-family: 'Inter', sans-serif;
+     font-size: 16px;
+     font-weight: 600;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+ }
+
+ .btn-minimal-off:hover {
+     background-color: rgb(87, 87, 87);
+     transform: translateY(-2px);
+     box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+ }
+
+ .btn-minimal-off:active {
+     transform: translateY(0);
+ }
+
+ /* Animation */
+ /* Put page content at z-index: 1 when this is integrated into a site. */
+ #falling-stars {
+     position: fixed;
+     z-index: 0;
+     inset: 0;
+     overflow: hidden;
+     pointer-events: none;
+ }
+
+ .star {
+     --x: 50vw;
+     --y: 50vh;
+     --size: 18px;
+     --duration: 3s;
+     --drift-x: 0px;
+     --tail-speed: .42s;
+     position: absolute;
+     top: -52px;
+     left: var(--x);
+     width: var(--size);
+     height: var(--size);
+     opacity: 0;
+     filter: drop-shadow(0 0 5px #ff9bd5) drop-shadow(0 0 13px #ff4fad);
+     animation: fall var(--duration) linear forwards;
+ }
+
+ .star::before {
+     content: "";
+     position: absolute;
+     inset: 0;
+     background: linear-gradient(135deg, #fff0fa, #ff72bd 48%, #ff3b9a);
+     clip-path: polygon(50% 0, 61% 35%, 98% 38%, 69% 60%, 79% 96%, 50% 75%, 21% 96%, 31% 60%, 2% 38%, 39% 35%);
+ }
+
+ .star::after {
+     content: "";
+     position: absolute;
+     top: calc(var(--size) * .415);
+     right: 50%;
+     width: calc(var(--size) * 4.5);
+     height: calc(var(--size) * .17);
+     border-radius: 999px;
+     /* Tail points upward as the star falls straight down. */
+     transform: rotate(90deg);
+     transform-origin: right center;
+     background: linear-gradient(90deg, transparent, #ff75bd 72%, #fff0fa);
+     opacity: .9;
+     animation: tailPulse var(--tail-speed) ease-in-out infinite alternate;
+ }
+
+ @keyframes fall {
+     0% {
+         opacity: 0;
+         transform: translate3d(0, 0, 0) scale(.55);
+     }
+
+     8% {
+         opacity: 1;
+     }
+
+     82% {
+         opacity: .95;
+     }
+
+     100% {
+         opacity: 0;
+         transform: translate3d(var(--drift-x), 115vh, 0) scale(1.12);
+     }
+ }
+
+ @keyframes tailPulse {
+     from {
+         opacity: .42;
+         transform: rotate(90deg) scaleX(.58);
+     }
+
+     to {
+         opacity: 1;
+         transform: rotate(90deg) scaleX(1.16);
+     }
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+     .star {
+         animation: none;
+     }
+ }
