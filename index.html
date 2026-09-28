@@ -35,7 +35,7 @@
             star.addEventListener('animationend', () => star.remove());
         }
 
-        var sound = new Audio("https://rafaelcalvin.github.io/data/ann/content-song.mp3");
+        var sound = new Audio("content-song.mp3");
         sound.loop = true;
 
         const d = new Date();
@@ -45,12 +45,12 @@
         const age_now = year - 2001;
         const month_aniversay = new Date("2026", "06", "30")
         const monthiv_now = d.getMonth() - month_aniversay.getMonth();
-        const cover_sound = new Audio("https://rafaelcalvin.github.io/data/ann/cover-song.mp3");
+        const cover_sound = new Audio("cover-song.mp3");
         cover_sound.loop = true
         $(document).ready(() => {
             $("#age").html(age_now)
             $("#monthiv").html(monthiv_now)
-            if (date == "27" && month == "09") {
+            if (date == "28" && month == "09") {
                 $("#btn_start").css("display", "block")
                 $("#gommene_text").css("display", "none")
                 $("#cat_happy").css("display", "block")
@@ -62,7 +62,7 @@
         })
         function submit() {
             let birth_date = $("#birth_date").val();
-            if (birth_date == "2026-09-27") {
+            if (birth_date == "2026-09-28") {
                 cover_sound.pause()
                 sound.play();
                 $("#message_input").css("display", "flex")
@@ -75,7 +75,7 @@
         function start_btn() {
             $("#container_birth_input").css("display", "flex")
             $("#btn_start").css("display", "none")
-            $("#main").css("background-image", "url('https://rafaelcalvin.github.io/data/ann/sky.jpg')")
+            $("#main").css("background-image", "sky.jpg")
             $("#cat_happy").css("display", "none")
             cover_sound.play()
             if (!reduceMotion) {
@@ -91,14 +91,14 @@
     <div class="main" id="main">
         <div id="birth_input" class="birth_input">
             <div id="container_birth_input" style="display: none;flex-direction: column;">
-                <img src="https://rafaelcalvin.github.io/data/ann/giphy.gif" alt="totoro" height="150px"
+                <img src="giphy.gif" alt="totoro" height="150px"
                     style="align-self: center; margin-bottom: 15px;border-radius: 20px;">
                 <label for="birth_date">生年月日を入力してください</label>
                 <input type="date" id="birth_date" name="birth_date"
                     style="margin: 10px 0; border-radius: 2px; border:1px solid black; padding: 5px;">
                 <button class="btn-minimal" onclick="submit()">送信する</button>
             </div>
-            <img id="cat_happy" src="https://rafaelcalvin.github.io/data/ann/cat_hp.gif" alt="Cat_Happy"
+            <img id="cat_happy" src="cat_hp.gif" alt="Cat_Happy"
                 style="display: none;border-radius: 20px;">
             <button id="btn_start" class="btn-minimal-off" onclick="start_btn()" style="display: none;">押してください</button>
             <span id="gomenne_text" style="display: none;">ごめん、まだ9月30日じゃないよ 😓</span>
@@ -108,10 +108,6 @@
                 <h2 style="margin:0;padding:5px">アンディニさん、お誕生日おめでとうございます！</h2>
                 <span style="margin:15px;font-size:20px">💖 🥳 🎉 🎊 🎂 💖</span>
             </div>
-            <!-- <video width="380" height="380" autoplay playsinline webkit-playsinline controls muted
-                style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
-                <source src="https://rafaelcalvin.github.io/data/ann/video.mov" type="video/quicktime">
-            </video> -->
             <iframe src="https://drive.google.com/file/d/1IEM0u1CtLYrKSvcMBXxt1_tchFzWY6GV/preview?autoplay=1" width="380" height="380" allow="autoplay">
             </iframe>
             <div class="footer">

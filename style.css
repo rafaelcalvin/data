@@ -17,7 +17,7 @@
      text-align: center;
      min-height: 100vh;
      /* background-image: url("https://rafaelcalvin.github.io/data/images/ghibli.jpg"); */
-     background-image: url("https://rafaelcalvin.github.io/data/ann/sky-gs.png");
+     background-image: url("sky-gs.png");
      background-size: cover;
      background-position: center center;
      background-repeat: no-repeat;
@@ -35,7 +35,7 @@
 
  .message_input {
      border-radius: 20px;
-     background-image: url("https://rafaelcalvin.github.io/data/ann/sparkle-message-1.gif");
+     background-image: url("sparkle-message-1.gif");
      margin: 20px;
      background-color: white;
      display: none;
