@@ -43,14 +43,15 @@
         let month = d.getMonth() + 1;
         let year = d.getFullYear();
         const age_now = year - 2001;
-        const month_aniversay = new Date("2026", "06", "30")
-        const monthiv_now = d.getMonth() - month_aniversay.getMonth();
+        const month_aniversary = new Date("2026", "06", "30")
+        const monthiv_now = d.getMonth() - month_aniversary.getMonth();
         const cover_sound = new Audio("cover-song.mp3");
         cover_sound.loop = true
         $(document).ready(() => {
             $("#age").html(age_now)
             $("#monthiv").html(monthiv_now)
-            if (date == "29" && month == "09") {
+            // Ubah Ini
+            if (date == "30" && month == "09") {
                 $("#btn_start").css("display", "block")
                 $("#gommene_text").css("display", "none")
                 $("#cat_happy").css("display", "block")
@@ -62,11 +63,14 @@
         })
         function submit() {
             let birth_date = $("#birth_date").val();
-            if (birth_date == "2026-09-29") {
+            // Ubah Ini
+            if (birth_date == "2001-09-30") {
                 cover_sound.pause()
                 sound.play();
                 $("#message_input").css("display", "flex")
                 $("#birth_input").css("display", "none")
+                const video_url = "https://drive.google.com/file/d/1IEM0u1CtLYrKSvcMBXxt1_tchFzWY6GV/preview?autoplay=1&mute=1";
+                $("#video_content").attr('src', video_url)
             } else {
                 alert("すみません。入力された生年月日が間違っています 😓")
             }
@@ -79,7 +83,6 @@
             $("#cat_happy").css("display", "none")
             cover_sound.play()
             if (!reduceMotion) {
-                // One star is created at a time. The next delay is intentionally random.
                 (function spawn() {
                     createStar();
                     setTimeout(spawn, 260 + Math.random() * 760);
@@ -98,24 +101,23 @@
                     style="margin: 10px 0; border-radius: 2px; border:1px solid black; padding: 5px;">
                 <button class="btn-minimal" onclick="submit()">送信する</button>
             </div>
-            <img id="cat_happy" src="cat_hp.gif" alt="Cat_Happy"
-                style="display: none;border-radius: 20px;">
+            <img id="cat_happy" src="cat_hp.gif" alt="Cat_Happy" style="display: none;border-radius: 20px;">
             <button id="btn_start" class="btn-minimal-off" onclick="start_btn()" style="display: none;">押してください</button>
-            <span id="gomenne_text" style="display: none;">ごめんaaa、まだ9月30日じゃないよ 😓</span>
+            <span id="gomenne_text" style="display: none;">ごめん、まだ9月30日じゃないよ 😓</span>
         </div>
         <div id="message_input" class="message_input">
             <div class="header">
                 <h2 style="margin:0;padding:5px">アンディニさん、お誕生日おめでとうございます！</h2>
                 <span style="margin:15px;font-size:20px">💖 🥳 🎉 🎊 🎂 💖</span>
             </div>
-            <iframe src="https://drive.google.com/file/d/1IEM0u1CtLYrKSvcMBXxt1_tchFzWY6GV/preview?autoplay=1" width="380" height="380" allow="autoplay">
+            <iframe id="video_content" width="380" height="380" allow="autoplay">
             </iframe>
             <div class="footer">
                 <div style="padding:0 20px">Happy <span id="age"></span>th birthday
                     and happy <span id="monthiv"></span>nd monthiversary my love 💕. <br>
                     I hope you’ll always be happy, successful, healthy, and able to achieve all your dreams.
                 </div>
-                <div style="font-weight: bold;margin-top: 5px;">Aminnn... 🤲😇</div>
+                <div style="font-weight: bold;margin-top: 5px;">Aminnn... 🙏😇</div>
                 <div style="color:white;display: flex;justify-content: center;margin-top: 20px;">
                     ~ Make with 💖 by Rafael.C.S
                 </div>
